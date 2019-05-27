@@ -1,0 +1,60 @@
+2019-05-27 19:30:04,600 WARN  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistryHelper - Virtual host is specified, host will be change from 0.0.0.0 to 10.15.232.132 when register
+2019-05-27 19:30:04,603 INFO  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00205: RPC 服务[io.sofastack.service.facade.HelloService:1.0@DEFAULT]发布开始 
+2019-05-27 19:30:04,649 INFO  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00206: RPC 服务[io.sofastack.service.facade.HelloService:1.0@DEFAULT]发布结束 
+2019-05-27 19:32:00,953 INFO  Thread-13                        com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00203: 注销 RPC 服务：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]	数量[1] 
+2019-05-27 19:32:00,953 INFO  SOFA-RPC-ShutdownHook            com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00203: 注销 RPC 服务：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]	数量[1] 
+2019-05-27 19:32:06,733 WARN  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistryHelper - Virtual host is specified, host will be change from 0.0.0.0 to 10.15.232.132 when register
+2019-05-27 19:32:06,737 INFO  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00205: RPC 服务[io.sofastack.service.facade.HelloService:1.0@DEFAULT]发布开始 
+2019-05-27 19:32:06,780 INFO  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00206: RPC 服务[io.sofastack.service.facade.HelloService:1.0@DEFAULT]发布结束 
+2019-05-27 19:42:09,123 INFO  SOFA-RPC-ShutdownHook            com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00203: 注销 RPC 服务：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]	数量[1] 
+2019-05-27 19:42:09,123 INFO  Thread-11                        com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00203: 注销 RPC 服务：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]	数量[1] 
+2019-05-27 19:42:13,220 WARN  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistryHelper - Virtual host is specified, host will be change from 0.0.0.0 to 10.15.232.132 when register
+2019-05-27 19:42:13,223 INFO  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00205: RPC 服务[io.sofastack.service.facade.HelloService:1.0@DEFAULT]发布开始 
+2019-05-27 19:42:13,259 INFO  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00206: RPC 服务[io.sofastack.service.facade.HelloService:1.0@DEFAULT]发布结束 
+2019-05-27 19:50:06,250 INFO  ObserverNotifyThread-2-thread-1  com.alipay.sofa.rpc.registry.sofa.SofaRegistrySubscribeCallback - RPC-00204: 接收 RPC 服务地址：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]
+  可调用目标地址[1]个
+  --- DEFAULT_ZONE
+   >>> 10.15.232.132:12200?rpcVer=50503&serialization=hessian2&weight=100&timeout=3000&appName=service-provider&p=1&v=4.0&_SERIALIZETYPE=hessian2&_WEIGHT=100&_TIMEOUT=3000&app_name=service-provider&startTime=1558957333221
+ 
+2019-05-27 19:50:06,310 INFO  ObserverNotifyThread-2-thread-2  com.alipay.sofa.rpc.registry.sofa.SofaRegistrySubscribeCallback - Receive RPC config info: service[io.sofastack.service.facade.HelloService:1.0@DEFAULT]
+  usable config info[0]
+
+2019-05-27 19:50:25,739 INFO  ObserverNotifyThread-2-thread-3  com.alipay.sofa.rpc.registry.sofa.SofaRegistrySubscribeCallback - RPC-00204: 接收 RPC 服务地址：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]
+  可调用目标地址[1]个
+  --- DEFAULT_ZONE
+   >>> 10.15.232.132:12200?rpcVer=50503&serialization=hessian2&weight=100&timeout=3000&appName=service-provider&p=1&v=4.0&_SERIALIZETYPE=hessian2&_WEIGHT=100&_TIMEOUT=3000&app_name=service-provider&startTime=1558957333221
+ 
+2019-05-27 19:51:49,440 INFO  ObserverNotifyThread-2-thread-1  com.alipay.sofa.rpc.registry.sofa.SofaRegistrySubscribeCallback - RPC-00204: 接收 RPC 服务地址：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]
+  可调用目标地址[1]个
+  --- DEFAULT_ZONE
+   >>> 10.15.232.132:12200?rpcVer=50503&serialization=hessian2&weight=100&timeout=3000&appName=service-provider&p=1&v=4.0&_SERIALIZETYPE=hessian2&_WEIGHT=100&_TIMEOUT=3000&app_name=service-provider&startTime=1558957333221
+ 
+2019-05-27 19:51:49,487 INFO  ObserverNotifyThread-2-thread-2  com.alipay.sofa.rpc.registry.sofa.SofaRegistrySubscribeCallback - Receive RPC config info: service[io.sofastack.service.facade.HelloService:1.0@DEFAULT]
+  usable config info[0]
+
+2019-05-27 19:52:00,505 INFO  ObserverNotifyThread-2-thread-1  com.alipay.sofa.rpc.registry.sofa.SofaRegistrySubscribeCallback - Receive RPC config info: service[io.sofastack.service.facade.HelloService:1.0@DEFAULT]
+  usable config info[0]
+
+2019-05-27 19:52:00,514 INFO  ObserverNotifyThread-2-thread-2  com.alipay.sofa.rpc.registry.sofa.SofaRegistrySubscribeCallback - RPC-00204: 接收 RPC 服务地址：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]
+  可调用目标地址[1]个
+  --- DEFAULT_ZONE
+   >>> 10.15.232.132:12200?rpcVer=50503&serialization=hessian2&weight=100&timeout=3000&appName=service-provider&p=1&v=4.0&_SERIALIZETYPE=hessian2&_WEIGHT=100&_TIMEOUT=3000&app_name=service-provider&startTime=1558957333221
+ 
+2019-05-27 19:52:03,119 INFO  SOFA-RPC-ShutdownHook            com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00203: 注销 RPC 服务：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]	数量[1] 
+2019-05-27 19:52:03,119 INFO  Thread-11                        com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00203: 注销 RPC 服务：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]	数量[1] 
+2019-05-27 19:52:03,681 INFO  ObserverNotifyThread-2-thread-3  com.alipay.sofa.rpc.registry.sofa.SofaRegistrySubscribeCallback - RPC-00204: 接收 RPC 服务地址：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]
+  可调用目标地址[0]个
+ 
+2019-05-27 19:52:07,641 WARN  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistryHelper - Virtual host is specified, host will be change from 0.0.0.0 to 10.15.232.132 when register
+2019-05-27 19:52:07,644 INFO  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00205: RPC 服务[io.sofastack.service.facade.HelloService:1.0@DEFAULT]发布开始 
+2019-05-27 19:52:07,684 INFO  main                             com.alipay.sofa.rpc.registry.sofa.SofaRegistry - RPC-00206: RPC 服务[io.sofastack.service.facade.HelloService:1.0@DEFAULT]发布结束 
+2019-05-27 19:52:08,313 INFO  ObserverNotifyThread-2-thread-4  com.alipay.sofa.rpc.registry.sofa.SofaRegistrySubscribeCallback - RPC-00204: 接收 RPC 服务地址：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]
+  可调用目标地址[1]个
+  --- DEFAULT_ZONE
+   >>> 10.15.232.132:12200?rpcVer=50503&serialization=hessian2&weight=100&timeout=3000&appName=service-provider&p=1&v=4.0&_SERIALIZETYPE=hessian2&_WEIGHT=100&_TIMEOUT=3000&app_name=service-provider&startTime=1558957927642
+ 
+2019-05-27 19:52:30,264 INFO  ObserverNotifyThread-2-thread-5  com.alipay.sofa.rpc.registry.sofa.SofaRegistrySubscribeCallback - RPC-00204: 接收 RPC 服务地址：服务名[io.sofastack.service.facade.HelloService:1.0@DEFAULT]
+  可调用目标地址[1]个
+  --- DEFAULT_ZONE
+   >>> 10.15.232.132:12200?rpcVer=50503&serialization=hessian2&weight=100&timeout=3000&appName=service-provider&p=1&v=4.0&_SERIALIZETYPE=hessian2&_WEIGHT=100&_TIMEOUT=3000&app_name=service-provider&startTime=1558957927642
+ 

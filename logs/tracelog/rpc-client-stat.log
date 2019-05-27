@@ -1,0 +1,6 @@
+{"time":"2019-05-27 19:41:36.729","stat.key":{"method":"hello","local.app":"service-consumer","service":"io.sofastack.service.facade.HelloService:1.0"},"count":1,"total.cost.milliseconds":14,"success":"N"}
+{"time":"2019-05-27 19:42:36.729","stat.key":{"method":"hello","local.app":"service-consumer","service":"io.sofastack.service.facade.HelloService:1.0"},"count":14,"total.cost.milliseconds":21,"success":"N"}
+{"time":"2019-05-27 19:43:36.726","stat.key":{"method":"hello","local.app":"service-consumer","service":"io.sofastack.service.facade.HelloService:1.0"},"count":6,"total.cost.milliseconds":4,"success":"N"}
+{"time":"2019-05-27 19:44:55.482","stat.key":{"method":"hello","local.app":"service-consumer","service":"io.sofastack.service.facade.HelloService:1.0"},"count":1,"total.cost.milliseconds":12,"success":"N"}
+{"time":"2019-05-27 19:50:55.466","stat.key":{"method":"hello","local.app":"service-consumer","remote.app":"service-provider","service":"io.sofastack.service.facade.HelloService:1.0"},"count":2,"total.cost.milliseconds":51,"success":"Y"}
+{"time":"2019-05-27 19:53:00.023","stat.key":{"method":"hello","local.app":"service-consumer","remote.app":"service-provider","service":"io.sofastack.service.facade.HelloService:1.0"},"count":1,"total.cost.milliseconds":51,"success":"Y"}

@@ -1,0 +1,135 @@
+2019-05-27 19:30:04.245[WARN]  rpc-client-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:30:04.251[WARN]  rpc-server-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:32:01.478[ERROR] Failed to report span to remote server. Current rest url is http://zipkin-dev.sofastack.tech:9411/api/v2/spans
+org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Bad Request
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:79)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:97)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:79)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:735)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:636)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.post(ZipkinRestTemplateSender.java:78)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.sendSpans(ZipkinRestTemplateSender.java:66)
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:286)
+	at zipkin2.reporter.AsyncReporter$Builder$1.run(AsyncReporter.java:190)
+
+2019-05-27 19:32:06.420[WARN]  rpc-client-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:32:06.426[WARN]  rpc-server-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:35:32.499[WARN]  rpc-client-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:35:32.505[WARN]  rpc-server-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:37:45.404[ERROR] Failed to report span to remote server. Current rest url is http://zipkin-dev.sofastack.tech:9411/api/v2/spans
+org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Bad Request
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:79)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:97)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:79)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:735)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:636)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.post(ZipkinRestTemplateSender.java:78)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.sendSpans(ZipkinRestTemplateSender.java:66)
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:286)
+	at zipkin2.reporter.AsyncReporter$Builder$1.run(AsyncReporter.java:190)
+
+2019-05-27 19:37:51.095[WARN]  rpc-client-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:37:51.101[WARN]  rpc-server-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:40:22.183[ERROR] Failed to report span to remote server. Current rest url is http://zipkin-dev.sofastack.tech:9411/api/v2/spans
+org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Bad Request
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:79)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:97)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:79)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:735)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:636)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.post(ZipkinRestTemplateSender.java:78)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.sendSpans(ZipkinRestTemplateSender.java:66)
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:286)
+	at zipkin2.reporter.AsyncReporter$Builder$1.run(AsyncReporter.java:190)
+
+2019-05-27 19:40:36.728[WARN]  rpc-client-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:40:36.733[WARN]  rpc-server-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:41:23.148[WARN]  spring-mvc-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:42:09.528[ERROR] Failed to report span to remote server. Current rest url is http://zipkin-dev.sofastack.tech:9411/api/v2/spans
+org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Bad Request
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:79)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:97)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:79)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:735)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:636)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.post(ZipkinRestTemplateSender.java:78)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.sendSpans(ZipkinRestTemplateSender.java:66)
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:286)
+	at zipkin2.reporter.AsyncReporter$Builder$1.run(AsyncReporter.java:190)
+
+2019-05-27 19:42:12.941[WARN]  rpc-client-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:42:12.946[WARN]  rpc-server-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:43:51.270[ERROR] Failed to report span to remote server. Current rest url is http://zipkin-dev.sofastack.tech:9411/api/v2/spans
+org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Bad Request
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:79)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:97)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:79)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:735)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:636)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.post(ZipkinRestTemplateSender.java:78)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.sendSpans(ZipkinRestTemplateSender.java:66)
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:286)
+	at zipkin2.reporter.AsyncReporter$Builder$1.run(AsyncReporter.java:190)
+
+2019-05-27 19:43:55.477[WARN]  rpc-client-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:43:55.482[WARN]  rpc-server-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:44:31.901[WARN]  spring-mvc-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:51:44.849[ERROR] Failed to report span to remote server. Current rest url is http://zipkin-dev.sofastack.tech:9411/api/v2/spans
+org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Bad Request
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:79)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:97)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:79)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:735)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:636)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.post(ZipkinRestTemplateSender.java:78)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.sendSpans(ZipkinRestTemplateSender.java:66)
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:286)
+	at zipkin2.reporter.AsyncReporter$Builder$1.run(AsyncReporter.java:190)
+
+2019-05-27 19:51:48.929[WARN]  rpc-client-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:51:48.934[WARN]  rpc-server-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:51:55.994[ERROR] Failed to report span to remote server. Current rest url is http://zipkin-dev.sofastack.tech:9411/api/v2/spans
+org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Bad Request
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:79)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:97)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:79)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:735)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:636)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.post(ZipkinRestTemplateSender.java:78)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.sendSpans(ZipkinRestTemplateSender.java:66)
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:286)
+	at zipkin2.reporter.AsyncReporter$Builder$1.run(AsyncReporter.java:190)
+
+2019-05-27 19:52:00.019[WARN]  rpc-client-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:52:00.023[WARN]  rpc-server-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:52:03.961[ERROR] Failed to report span to remote server. Current rest url is http://zipkin-dev.sofastack.tech:9411/api/v2/spans
+org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Bad Request
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:79)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:97)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:79)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:777)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:735)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:636)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.post(ZipkinRestTemplateSender.java:78)
+	at com.alipay.sofa.tracer.plugins.zipkin.sender.ZipkinRestTemplateSender.sendSpans(ZipkinRestTemplateSender.java:66)
+	at zipkin2.reporter.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:286)
+	at zipkin2.reporter.AsyncReporter$Builder$1.run(AsyncReporter.java:190)
+
+2019-05-27 19:52:07.349[WARN]  rpc-client-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:52:07.355[WARN]  rpc-server-stat.log configured stat_log_interval=60 second and default cycle=60
+2019-05-27 19:52:10.683[WARN]  spring-mvc-stat.log configured stat_log_interval=60 second and default cycle=60
