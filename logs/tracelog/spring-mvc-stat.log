@@ -1,8 +1,0 @@
-{"time":"2019-05-27 19:41:36.729","stat.key":{"method":"GET","local.app":"service-consumer","request.url":"http://localhost:8084/hello"},"count":1,"total.cost.milliseconds":76,"success":"false","load.test":"F"}
-{"time":"2019-05-27 19:42:36.730","stat.key":{"method":"GET","local.app":"service-consumer","request.url":"http://localhost:8084/favicon.ico"},"count":4,"total.cost.milliseconds":31,"success":"true","load.test":"F"}
-{"time":"2019-05-27 19:42:36.730","stat.key":{"method":"GET","local.app":"service-consumer","request.url":"http://localhost:8084/hello"},"count":14,"total.cost.milliseconds":39,"success":"false","load.test":"F"}
-{"time":"2019-05-27 19:43:36.726","stat.key":{"method":"GET","local.app":"service-consumer","request.url":"http://localhost:8084/favicon.ico"},"count":5,"total.cost.milliseconds":12,"success":"true","load.test":"F"}
-{"time":"2019-05-27 19:43:36.726","stat.key":{"method":"GET","local.app":"service-consumer","request.url":"http://localhost:8084/hello"},"count":6,"total.cost.milliseconds":9,"success":"false","load.test":"F"}
-{"time":"2019-05-27 19:44:55.483","stat.key":{"method":"GET","local.app":"service-consumer","request.url":"http://localhost:8084/hello"},"count":1,"total.cost.milliseconds":68,"success":"false","load.test":"F"}
-{"time":"2019-05-27 19:50:55.467","stat.key":{"method":"GET","local.app":"service-consumer","request.url":"http://localhost:8084/hello"},"count":2,"total.cost.milliseconds":69,"success":"true","load.test":"F"}
-{"time":"2019-05-27 19:53:00.024","stat.key":{"method":"GET","local.app":"service-consumer","request.url":"http://localhost:8084/hello"},"count":1,"total.cost.milliseconds":130,"success":"true","load.test":"F"}

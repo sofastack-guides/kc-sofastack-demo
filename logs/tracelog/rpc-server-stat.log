@@ -1,2 +1,0 @@
-{"time":"2019-05-27 19:50:12.926","stat.key":{"method":"hello","local.app":"service-provider","remote.app":"service-consumer","service":"io.sofastack.service.facade.HelloService:1.0"},"count":2,"total.cost.milliseconds":6,"success":"Y"}
-{"time":"2019-05-27 19:53:07.355","stat.key":{"method":"hello","local.app":"service-provider","remote.app":"service-consumer","service":"io.sofastack.service.facade.HelloService:1.0"},"count":1,"total.cost.milliseconds":6,"success":"Y"}
