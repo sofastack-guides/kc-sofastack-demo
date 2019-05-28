@@ -51,6 +51,12 @@
                 <version>5.2.0</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>tracer-sofa-boot-starter</artifactId>
+                <version>3.0.5</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
