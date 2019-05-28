@@ -10,7 +10,7 @@
 * 通过 ZipKin 查看 SOFATracer 上报的信息
 
 ## 架构图
-![pic](https://gw.alipayobjects.com/mdn/rms_1a1552/afts/img/A*Ux2hQZNBvs0AAAAAAAAAAABkARQnAQ)
+![pic](https://gw.alipayobjects.com/mdn/rms_1a1552/afts/img/A*WtRuRr4fzxIAAAAAAAAAAABkARQnAQ)
 
 ## 任务
 
