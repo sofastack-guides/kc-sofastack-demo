@@ -10,6 +10,7 @@
 * 通过 ZipKin 查看 SOFATracer 上报的信息
 
 ## 架构图
+![pic](https://gw.alipayobjects.com/mdn/rms_1a1552/afts/img/A*Ux2hQZNBvs0AAAAAAAAAAABkARQnAQ)
 
 ## 任务
 
@@ -111,3 +112,6 @@ com.alipay.sofa.tracer.zipkin.base-url=http://zipkin-dev.sofastack.tech:9411
 
 * 链路关系
 ![](https://gw.alipayobjects.com/mdn/rms_1a1552/afts/img/A*ve2lQKjvuPYAAAAAAAAAAABkARQnAQ)
+
+#### 7、上报 lookout
+待建设
