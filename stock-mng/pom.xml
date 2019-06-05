@@ -18,6 +18,24 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>io.sofastack</groupId>
+			<artifactId>balance-mng-facade</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
 		<!-- 引入依赖在这里 -->
 		<!--SOFARPC 依赖-->
 		<dependency>

@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 2019/6/3
  */
 @SpringBootApplication
-public class SOFAStackBotApplication {
+public class BalanceMngApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SOFAStackBotApplication.class, args);
+        SpringApplication.run(BalanceMngApplication.class, args);
     }
 }
