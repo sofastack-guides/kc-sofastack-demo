@@ -2,7 +2,6 @@ package io.sofastack.stockmng.facade;
 
 import io.sofastack.stockmng.type.ProductInfo;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**

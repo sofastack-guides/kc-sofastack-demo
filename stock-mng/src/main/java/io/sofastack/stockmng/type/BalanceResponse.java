@@ -1,6 +1,6 @@
 package io.sofastack.stockmng.type;
 
-public class BalanceOnly {
+public class BalanceResponse {
 
     private int balance;
 

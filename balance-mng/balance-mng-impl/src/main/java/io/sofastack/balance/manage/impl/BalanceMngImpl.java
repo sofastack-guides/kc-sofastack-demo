@@ -9,8 +9,6 @@ import io.sofastack.balance.manage.type.Balance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -36,7 +34,7 @@ public class BalanceMngImpl implements BalanceMngFacade {
 
     @Override
     public void createUser(String userName){
-        Balance balance = balanceMngMapper.isExistUser(userName);
+        Balance balance = balanceMngMapper.userExists(userName);
         if (balance == null){
             balanceMngMapper.createUser(userName);
         }
@@ -46,7 +44,7 @@ public class BalanceMngImpl implements BalanceMngFacade {
     public int queryBalance(String userName){
         Balance balance = balanceMngMapper.queryBalance(userName);
         if (balance == null){
-            throw new RuntimeException("userName is not exits");
+            throw new RuntimeException("user name does not exist");
         }
         return balance.getBalance();
     }

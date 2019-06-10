@@ -4,13 +4,11 @@
  */
 package io.sofastack.stockmng.controller;
 
-import io.sofastack.balance.manage.type.Balance;
-import io.sofastack.stockmng.type.BalanceOnly;
+import io.sofastack.stockmng.type.BalanceResponse;
 import io.sofastack.stockmng.type.ProductInfo;
 import io.sofastack.stockmng.type.Success;
 import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.GET;
 import java.util.List;
 
 /**
@@ -56,5 +54,5 @@ public interface BookStoreController {
      */
     @RequestMapping(value = "/queryBalance", method = RequestMethod.POST)
     @ResponseBody
-    BalanceOnly queryBalance(@RequestBody String body);
+    BalanceResponse queryBalance(@RequestBody String body);
 }

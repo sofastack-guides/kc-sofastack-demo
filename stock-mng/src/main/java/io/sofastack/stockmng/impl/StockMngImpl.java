@@ -1,25 +1,21 @@
 package io.sofastack.stockmng.impl;
 
-import ch.qos.logback.core.status.OnPrintStreamStatusListenerBase;
 import com.alipay.sofa.runtime.api.annotation.SofaReference;
 import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
 import com.alipay.sofa.runtime.api.annotation.SofaService;
 import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
 import io.sofastack.balance.manage.facade.BalanceMngFacade;
-import io.sofastack.balance.manage.type.Balance;
 import io.sofastack.stockmng.facade.StockMngFacade;
 import io.sofastack.stockmng.mapper.StockMngMapper;
 import io.sofastack.stockmng.type.ProductInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -44,10 +40,10 @@ public class StockMngImpl implements StockMngFacade {
 
     @Override
     public List<ProductInfo> query(String userName){
-        List<ProductInfo> productInfos = stockMngMapper.query(userName);
-        if (productInfos == null){
-            throw new RuntimeException("userName is not exits");
+        if (stockMngMapper.userExists(userName) == null){
+            throw new RuntimeException("user name does not exist");
         }
+        List<ProductInfo> productInfos = stockMngMapper.query(userName);
         return productInfos;
     }
 
@@ -59,7 +55,10 @@ public class StockMngImpl implements StockMngFacade {
     public void purchase(String userName, String productCode, int count){
         Integer productPrice = stockMngMapper.queryProductPrice(productCode);
         if (productPrice == null){
-            throw new RuntimeException("productCode is not exits");
+            throw new RuntimeException("product code does not exist");
+        }
+        if (count < 0){
+            throw new RuntimeException("purchase count should not be negative");
         }
         balanceMngFacade.minusBalance(userName, productPrice * count);
         stockMngMapper.purchase(userName, productCode, count);

@@ -9,19 +9,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.alipay.sofa.runtime.api.annotation.SofaReference;
 import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
 import io.sofastack.balance.manage.facade.BalanceMngFacade;
-import io.sofastack.balance.manage.type.Balance;
 import io.sofastack.stockmng.controller.BookStoreController;
 import io.sofastack.stockmng.facade.StockMngFacade;
-import io.sofastack.stockmng.type.BalanceOnly;
+import io.sofastack.stockmng.type.BalanceResponse;
 import io.sofastack.stockmng.type.ProductInfo;
 import io.sofastack.stockmng.type.Success;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.annotation.Resource;
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 /**
  * @author yuanyuan
@@ -40,8 +36,7 @@ public class BookStoreControllerImpl implements BookStoreController {
     public List<ProductInfo> query(String body) {
         JSONObject obj = JSON.parseObject(body);
         String userName = obj.getString("userName");
-        List<ProductInfo> productInfos = stockMngFacade.query(userName);
-        return productInfos;
+        return stockMngFacade.query(userName);
     }
 
     @Override
@@ -52,10 +47,6 @@ public class BookStoreControllerImpl implements BookStoreController {
         String productCode = obj.getString("productCode");
         int count = obj.getInteger("count");
 
-        return purchase(userName, productCode, count);
-    }
-
-    public Success purchase(String userName, String productCode, int count) {
         stockMngFacade.purchase(userName, productCode, count);
         Success success = new Success();
         success.setSuccess("true");
@@ -73,10 +64,10 @@ public class BookStoreControllerImpl implements BookStoreController {
     }
 
     @Override
-    public BalanceOnly queryBalance(@RequestBody String body){
+    public BalanceResponse queryBalance(@RequestBody String body){
         JSONObject obj = JSON.parseObject(body);
         String userName = obj.getString("userName");
-        BalanceOnly balance = new BalanceOnly();
+        BalanceResponse balance = new BalanceResponse();
         balance.setBalance((balanceMngFacade.queryBalance(userName)));
         return balance;
     }

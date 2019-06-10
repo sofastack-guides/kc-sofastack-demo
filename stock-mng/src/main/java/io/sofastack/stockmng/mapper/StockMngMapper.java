@@ -1,11 +1,14 @@
 package io.sofastack.stockmng.mapper;
 
+import io.sofastack.balance.manage.type.Balance;
+import io.sofastack.balance.manage.type.Order;
 import io.sofastack.stockmng.type.ProductInfo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Mapper
@@ -21,4 +24,7 @@ public interface StockMngMapper {
 
     @Insert("insert into order_tb (user_name, product_code, count) values (#{userName}, #{productCode}, #{count})")
     void purchase(@Param("userName") String userName, @Param("productCode") String productCode, @Param("count") int count);
+
+    @Select("select * from balance_tb where user_name = #{userName}")
+    Balance userExists(@Param("userName") String userName);
 }
