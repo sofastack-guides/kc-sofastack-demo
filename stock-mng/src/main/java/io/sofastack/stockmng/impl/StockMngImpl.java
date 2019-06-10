@@ -57,7 +57,7 @@ public class StockMngImpl implements StockMngFacade {
         if (productPrice == null){
             throw new RuntimeException("product code does not exist");
         }
-        if (count < 0){
+        if (count <= 0){
             throw new RuntimeException("purchase count should not be negative");
         }
         balanceMngFacade.minusBalance(userName, productPrice * count);
