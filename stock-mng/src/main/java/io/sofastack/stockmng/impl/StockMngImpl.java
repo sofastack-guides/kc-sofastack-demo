@@ -45,6 +45,9 @@ public class StockMngImpl implements StockMngFacade {
     @Override
     public List<ProductInfo> query(String userName){
         List<ProductInfo> productInfos = stockMngMapper.query(userName);
+        if (productInfos == null){
+            throw new RuntimeException("userName is not exits");
+        }
         return productInfos;
     }
 
@@ -55,6 +58,9 @@ public class StockMngImpl implements StockMngFacade {
     @Override
     public void purchase(String userName, String productCode, int count){
         Integer productPrice = stockMngMapper.queryProductPrice(productCode);
+        if (productPrice == null){
+            throw new RuntimeException("productCode is not exits");
+        }
         balanceMngFacade.minusBalance(userName, productPrice * count);
         stockMngMapper.purchase(userName, productCode, count);
     }

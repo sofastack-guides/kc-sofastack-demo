@@ -45,6 +45,9 @@ public class BalanceMngImpl implements BalanceMngFacade {
     @Override
     public int queryBalance(String userName){
         Balance balance = balanceMngMapper.queryBalance(userName);
+        if (balance == null){
+            throw new RuntimeException("userName is not exits");
+        }
         return balance.getBalance();
     }
 
