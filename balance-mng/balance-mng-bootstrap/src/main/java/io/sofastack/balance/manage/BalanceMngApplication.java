@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author xuanbei
- * @since 2019/6/3
+ * @author yuanyuan
+ * @since 2019/6/10
  */
 @SpringBootApplication
 public class BalanceMngApplication {
