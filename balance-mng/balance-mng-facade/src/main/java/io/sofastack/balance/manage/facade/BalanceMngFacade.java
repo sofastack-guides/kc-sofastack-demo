@@ -1,10 +1,27 @@
 package io.sofastack.balance.manage.facade;
 
 /**
- * @author xuanbei
- * @since 2019/6/3
+ * @author yuanyuan
+ * @since 2019/6/10
  */
 public interface BalanceMngFacade {
+
+    /**
+     *
+     * 添加一条用户记录
+     */
+
+    void createUser(String userName);
+
+
+    /**
+     * 返回用户余额
+     *
+     */
+    int queryBalance(String userName);
+
+
+
     /**
      * 减少用户余额
      *

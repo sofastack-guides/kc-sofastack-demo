@@ -4,25 +4,55 @@
  */
 package io.sofastack.stockmng.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import io.sofastack.stockmng.type.BalanceResponse;
+import io.sofastack.stockmng.type.ProductInfo;
+import io.sofastack.stockmng.type.Success;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  *
- * @author lorne.cl
+ * @author yuanyuan
+ * @Since 2019/6/10
  */
-@RequestMapping("/api")
+
+@RequestMapping("/")
 public interface BookStoreController {
 
     /**
-     * 购买
-     * @param userName
-     * @param productCode
-     * @param count
-     * @return
+     * 查询商品信息
+     *
      */
-    @RequestMapping("/purchase")
+    @RequestMapping(value = "/query", method = RequestMethod.POST)
     @ResponseBody
-    String purchase(@RequestParam("userName") String userName, @RequestParam("productCode") String productCode, @RequestParam("count") int count);
+    List<ProductInfo> query(@RequestBody String body);
+
+
+    /**
+     * 购买
+     *
+     */
+    @RequestMapping(value = "/purchase", method = RequestMethod.POST)
+    @ResponseBody
+    Success purchase(@RequestBody String body);
+
+
+    /**
+     * BalanceMng的RPC代理为Web
+     * 创建用户
+     *
+     */
+    @RequestMapping(value = "/createUser", method = RequestMethod.POST)
+    @ResponseBody
+    Success createUser(@RequestBody String body);
+
+    /**
+     * BalanceMng的RPC代理为Web
+     * 查询余额
+     *
+     */
+    @RequestMapping(value = "/queryBalance", method = RequestMethod.POST)
+    @ResponseBody
+    BalanceResponse queryBalance(@RequestBody String body);
 }

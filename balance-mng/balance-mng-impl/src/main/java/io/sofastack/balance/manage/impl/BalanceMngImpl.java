@@ -2,22 +2,26 @@ package io.sofastack.balance.manage.impl;
 
 import com.alipay.sofa.runtime.api.annotation.SofaService;
 import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
+;
+import io.sofastack.balance.manage.mapper.BalanceMngMapper;
 import io.sofastack.balance.manage.facade.BalanceMngFacade;
+import io.sofastack.balance.manage.type.Balance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import javax.annotation.Resource;
 
 /**
- * @author xuanbei
- * @since 2019/6/3
+ * @author yuanyuan
+ * @since 2019/6/10
  */
 @Service
-@SofaService(interfaceType = BalanceMngFacade.class,bindings = { @SofaServiceBinding(bindingType = "bolt")})
+@Component
+@SofaService(interfaceType = BalanceMngFacade.class, bindings = { @SofaServiceBinding(bindingType = "bolt")})
 public class BalanceMngImpl implements BalanceMngFacade {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BalanceMngImpl.class);
@@ -25,12 +29,28 @@ public class BalanceMngImpl implements BalanceMngFacade {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Resource
+    private BalanceMngMapper balanceMngMapper;
+
+    @Override
+    public void createUser(String userName){
+        Balance balance = balanceMngMapper.userExists(userName);
+        if (balance == null){
+            balanceMngMapper.createUser(userName);
+        }
+    }
+
+    @Override
+    public int queryBalance(String userName){
+        Balance balance = balanceMngMapper.queryBalance(userName);
+        if (balance == null){
+            throw new RuntimeException("user name does not exist");
+        }
+        return balance.getBalance();
+    }
+
     @Override
     public void minusBalance(String userName, double amount) {
-        LOGGER.info("minus balance begin ...");
-        LOGGER.info("minus stock SQL: update balance_tb set balance = balance - {} where user_name = {}", amount, userName);
-
-        jdbcTemplate.update("update balance_tb set balance = balance - ? where user_name = ?", new Object[] {amount, userName});
-        LOGGER.info("minus balance end");
+        balanceMngMapper.minusBalance(userName, amount);
     }
 }
