@@ -2,9 +2,9 @@ package io.sofastack.stockmng.type;
 
 public class ProductInfo {
 
-    private String productCode;
-    private int price;
-    private String name;
+    private String  productCode;
+    private int     price;
+    private String  name;
     private Integer ownedCount;
 
     public String getProductCode() {

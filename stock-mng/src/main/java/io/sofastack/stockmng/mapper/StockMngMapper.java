@@ -1,14 +1,12 @@
 package io.sofastack.stockmng.mapper;
 
-import io.sofastack.balance.manage.type.Balance;
-import io.sofastack.balance.manage.type.Order;
+import io.sofastack.balance.manage.model.Balance;
 import io.sofastack.stockmng.type.ProductInfo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import java.util.LinkedList;
 import java.util.List;
 
 @Mapper

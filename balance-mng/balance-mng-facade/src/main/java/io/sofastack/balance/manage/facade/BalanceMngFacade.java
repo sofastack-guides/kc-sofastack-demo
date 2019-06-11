@@ -9,18 +9,17 @@ public interface BalanceMngFacade {
     /**
      *
      * 添加一条用户记录
+     *
+     * @param userName 用户名
      */
-
     void createUser(String userName);
-
 
     /**
      * 返回用户余额
      *
+     * @param userName 用户名
      */
     int queryBalance(String userName);
-
-
 
     /**
      * 减少用户余额

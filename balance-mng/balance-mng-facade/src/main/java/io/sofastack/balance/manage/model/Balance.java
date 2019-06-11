@@ -1,10 +1,13 @@
-package io.sofastack.balance.manage.type;
+package io.sofastack.balance.manage.model;
 
+/**
+ * @author yuanyuan
+ * @since 2019/6/10
+ */
 public class Balance {
-
-    private int id;
+    private int    id;
     private String userName;
-    private int balance;
+    private int    balance;
 
     public int getId() {
         return id;
