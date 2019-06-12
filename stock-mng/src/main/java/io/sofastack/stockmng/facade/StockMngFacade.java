@@ -1,6 +1,6 @@
 package io.sofastack.stockmng.facade;
 
-import io.sofastack.stockmng.type.ProductInfo;
+import io.sofastack.stockmng.model.ProductInfo;
 
 import java.util.List;
 
