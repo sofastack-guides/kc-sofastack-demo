@@ -1,4 +1,4 @@
-package io.sofastack.stockmng.type;
+package io.sofastack.stockmng.model;
 
 public class Success {
 

@@ -1,7 +1,7 @@
 package io.sofastack.stockmng.mapper;
 
-import io.sofastack.balance.manage.model.Balance;
-import io.sofastack.stockmng.type.ProductInfo;
+import io.sofastack.balance.manage.model.*;
+import io.sofastack.stockmng.model.ProductInfo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Mapper
 public interface StockMngMapper {
-    @Select("select stock_tb.product_code as productCode, name, price, sum(count) as ownedCount\n" +
+    @Select("select stock_tb.product_code as productCode, name, price, sum(count) as ownedCount, description\n" +
             "from stock_tb left outer join (select product_code, count from order_tb where user_name = #{userName}) as user_orders\n" +
             "                         on stock_tb.product_code = user_orders.product_code\n" +
             "group by stock_tb.product_code;")

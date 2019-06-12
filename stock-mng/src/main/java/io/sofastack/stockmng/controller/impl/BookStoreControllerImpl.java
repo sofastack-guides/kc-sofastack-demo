@@ -11,9 +11,9 @@ import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
 import io.sofastack.balance.manage.facade.BalanceMngFacade;
 import io.sofastack.stockmng.controller.BookStoreController;
 import io.sofastack.stockmng.facade.StockMngFacade;
-import io.sofastack.stockmng.type.BalanceResponse;
-import io.sofastack.stockmng.type.ProductInfo;
-import io.sofastack.stockmng.type.Success;
+import io.sofastack.stockmng.model.BalanceResponse;
+import io.sofastack.stockmng.model.ProductInfo;
+import io.sofastack.stockmng.model.Success;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 

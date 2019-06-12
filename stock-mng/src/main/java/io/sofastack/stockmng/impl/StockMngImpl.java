@@ -7,8 +7,7 @@ import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
 import io.sofastack.balance.manage.facade.BalanceMngFacade;
 import io.sofastack.stockmng.facade.StockMngFacade;
 import io.sofastack.stockmng.mapper.StockMngMapper;
-import io.sofastack.stockmng.type.ProductInfo;
-import org.springframework.stereotype.Component;
+import io.sofastack.stockmng.model.ProductInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -19,7 +18,6 @@ import java.util.List;
  * @since 2019/6/10
  */
 @Service
-@Component
 @SofaService(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", bindings = {
         @SofaServiceBinding(bindingType = "bolt") })
 public class StockMngImpl implements StockMngFacade {

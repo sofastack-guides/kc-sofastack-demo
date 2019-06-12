@@ -15,7 +15,6 @@ import javax.annotation.Resource;
  * @since 2019/6/10
  */
 @Service
-@Component
 @SofaService(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", bindings = {
         @SofaServiceBinding(bindingType = "bolt") })
 public class BalanceMngImpl implements BalanceMngFacade {
