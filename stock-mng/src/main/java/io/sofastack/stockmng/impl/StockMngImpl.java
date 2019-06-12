@@ -8,6 +8,8 @@ import io.sofastack.balance.manage.facade.BalanceMngFacade;
 import io.sofastack.stockmng.facade.StockMngFacade;
 import io.sofastack.stockmng.mapper.StockMngMapper;
 import io.sofastack.stockmng.model.ProductInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,6 +24,8 @@ import java.util.List;
 @SofaService(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", bindings = {
         @SofaServiceBinding(bindingType = "bolt") })
 public class StockMngImpl implements StockMngFacade {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(StockMngImpl.class);
 
     @Resource
     private StockMngMapper stockMngMapper;
@@ -62,9 +66,11 @@ public class StockMngImpl implements StockMngFacade {
         if (count <= 0) {
             throw new RuntimeException("purchase count should not be negative");
         }
-        balanceMngFacade.minusBalance(userName, productPrice.multiply(new BigDecimal(count)));
-        stockMngMapper.purchase(userName, productCode, count);
+        LOGGER.info("purchase begin ... ");
+        stockMngMapper.createOrder(userName, productCode, count);
         stockMngMapper.minusStockCount(userName, productCode, count);
+        balanceMngFacade.minusBalance(userName, productPrice.multiply(new BigDecimal(count)));
+        LOGGER.info("purchase end");
     }
 
     private static final String ITEM_DESCRIPTION = "<div>\n"
