@@ -40,6 +40,14 @@ public class BookStoreControllerImpl implements BookStoreController {
     }
 
     @Override
+    public List<ProductInfo> querySorted(String body) {
+        //TODO(guolei.sgl): SOFA 动态模块
+        JSONObject obj = JSON.parseObject(body);
+        String userName = obj.getString("userName");
+        return stockMngFacade.query(userName);
+    }
+
+    @Override
     public Success purchase(String body) {
 
         JSONObject obj = JSON.parseObject(body);

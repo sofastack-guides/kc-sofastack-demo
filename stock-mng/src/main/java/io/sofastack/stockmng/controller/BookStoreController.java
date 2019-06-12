@@ -32,6 +32,13 @@ public interface BookStoreController {
     List<ProductInfo> query(@RequestBody String body);
 
     /**
+     * 查询排序后的商品信息（演示动态模块）
+     */
+    @RequestMapping(value = "/querySorted", method = RequestMethod.POST)
+    @ResponseBody
+    List<ProductInfo> querySorted(@RequestBody String body);
+
+    /**
      * 购买
      *
      */
