@@ -3,7 +3,7 @@ package io.sofastack.stockmng.model;
 public class ProductInfo {
 
     private String  productCode;
-    private int     price;
+    private Double price;
     private String  name;
     private Integer ownedCount;
     private String description;
@@ -24,11 +24,11 @@ public class ProductInfo {
         this.productCode = productCode;
     }
 
-    public int getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

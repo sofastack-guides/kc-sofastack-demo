@@ -39,9 +39,10 @@ public class StockMngImpl implements StockMngFacade {
     }
 
     private void initUser(String userName) {
+        Double[] prices = new Double[] {0.0, 50.0, 80.0, 15.0};
         for (int i = 1; i <= 3; i++) {
             stockMngMapper.insertStockRecord(
-                "0000" + i, "测试商品" + i, "<h2>测试商品描述" + i + "</h2>" + ITEM_DESCRIPTION, 8.5 * i, 10000, userName
+                "0000" + i, "测试商品" + i, "<h2>测试商品描述" + i + "</h2>" + ITEM_DESCRIPTION, prices[i], 10000, userName
             );
         }
     }
@@ -52,7 +53,7 @@ public class StockMngImpl implements StockMngFacade {
      */
     @Override
     public void purchase(String userName, String productCode, int count) {
-        Integer productPrice = stockMngMapper.queryProductPrice(productCode, userName);
+        Double productPrice = stockMngMapper.queryProductPrice(productCode, userName);
         if (productPrice == null) {
             throw new RuntimeException("product code does not exist");
         }

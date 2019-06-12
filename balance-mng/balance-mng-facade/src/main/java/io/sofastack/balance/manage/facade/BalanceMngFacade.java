@@ -19,7 +19,7 @@ public interface BalanceMngFacade {
      *
      * @param userName 用户名
      */
-    int queryBalance(String userName);
+    Double queryBalance(String userName);
 
     /**
      * 减少用户余额

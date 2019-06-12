@@ -13,7 +13,7 @@ public interface BalanceMngMapper {
     @Select("select * from balance_tb where user_name = #{userName}")
     Balance userExists(@Param("userName") String userName);
 
-    @Insert("insert into balance_tb  (user_name, balance) values (#{userName}, 100000000)")
+    @Insert("insert into balance_tb (user_name, balance) values (#{userName}, 1000000)")
     void createUser(@Param("userName") String userName);
 
     @Select("select * from balance_tb where user_name = #{userName}")

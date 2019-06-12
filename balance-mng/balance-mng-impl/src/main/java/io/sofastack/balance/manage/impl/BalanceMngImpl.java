@@ -30,7 +30,7 @@ public class BalanceMngImpl implements BalanceMngFacade {
     }
 
     @Override
-    public int queryBalance(String userName) {
+    public Double queryBalance(String userName) {
         Balance balance = balanceMngMapper.queryBalance(userName);
         if (balance == null) {
             throw new RuntimeException("user name does not exist");

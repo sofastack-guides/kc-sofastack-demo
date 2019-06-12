@@ -2,13 +2,13 @@ package io.sofastack.stockmng.model;
 
 public class BalanceResponse {
 
-    private int balance;
+    private Double balance;
 
-    public int getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
 }

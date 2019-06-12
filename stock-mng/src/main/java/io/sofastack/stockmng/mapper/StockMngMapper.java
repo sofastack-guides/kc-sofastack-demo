@@ -18,7 +18,7 @@ public interface StockMngMapper {
     List<ProductInfo> query(@Param("userName") String userName);
 
     @Select("select price from stock_tb where product_code = #{productCode} and user_name = #{userName}")
-    Integer queryProductPrice(@Param("productCode") String productCode, @Param("userName") String userName);
+    Double queryProductPrice(@Param("productCode") String productCode, @Param("userName") String userName);
 
     @Select("select sum(1) from stock_tb where user_name = #{userName}")
     Integer getStockRecordCountForUserName(@Param("userName") String userName);

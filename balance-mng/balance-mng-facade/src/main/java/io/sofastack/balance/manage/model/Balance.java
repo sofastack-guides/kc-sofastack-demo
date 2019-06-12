@@ -7,7 +7,7 @@ package io.sofastack.balance.manage.model;
 public class Balance {
     private int    id;
     private String userName;
-    private int    balance;
+    private Double balance;
 
     public int getId() {
         return id;
@@ -25,11 +25,11 @@ public class Balance {
         this.userName = userName;
     }
 
-    public int getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
 }
