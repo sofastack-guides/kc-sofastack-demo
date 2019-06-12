@@ -66,7 +66,7 @@ public class StockMngImpl implements StockMngFacade {
         if (count <= 0) {
             throw new RuntimeException("purchase count should not be negative");
         }
-        LOGGER.info("purchase begin ...");
+        LOGGER.info("purchase begin ... ");
         stockMngMapper.createOrder(userName, productCode, count);
         stockMngMapper.minusStockCount(userName, productCode, count);
         balanceMngFacade.minusBalance(userName, productPrice.multiply(new BigDecimal(count)));
