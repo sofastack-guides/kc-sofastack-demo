@@ -6,7 +6,17 @@ public class ProductInfo {
     private Double price;
     private String  name;
     private Integer ownedCount;
+    private Integer stockCount;
     private String description;
+
+    public Integer getStockCount() {
+        return stockCount;
+    }
+
+    public void setStockCount(Integer stockCount) {
+        this.stockCount = stockCount;
+    }
+
 
     public String getDescription() {
         return description;

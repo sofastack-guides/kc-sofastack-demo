@@ -62,6 +62,7 @@ public class StockMngImpl implements StockMngFacade {
         }
         balanceMngFacade.minusBalance(userName, productPrice * count);
         stockMngMapper.purchase(userName, productCode, count);
+        stockMngMapper.minusStockCount(userName, productCode, count);
     }
 
     private static final String ITEM_DESCRIPTION = "<div>\n"
