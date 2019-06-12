@@ -6,6 +6,7 @@
     <modules>
         <module>stock-mng</module>
         <module>balance-mng</module>
+        <module>dynamic</module>
     </modules>
     <parent>
         <groupId>com.alipay.sofa</groupId>

@@ -71,4 +71,9 @@ public class BookStoreControllerImpl implements BookStoreController {
         balance.setBalance((balanceMngFacade.queryBalance(userName)));
         return balance;
     }
+
+    @Override
+    public BalanceResponse querySort() {
+        return null;
+    }
 }
