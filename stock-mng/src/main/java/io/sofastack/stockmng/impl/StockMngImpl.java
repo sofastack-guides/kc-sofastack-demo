@@ -11,6 +11,7 @@ import io.sofastack.stockmng.model.ProductInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -39,7 +40,8 @@ public class StockMngImpl implements StockMngFacade {
     }
 
     private void initUser(String userName) {
-        Double[] prices = new Double[] {0.0, 50.0, 80.0, 15.0};
+        BigDecimal[] prices = new BigDecimal[] {new BigDecimal(0.0), new BigDecimal(50.0), new BigDecimal(80.0),
+            new BigDecimal(15.0)};
         for (int i = 1; i <= 3; i++) {
             stockMngMapper.insertStockRecord(
                 "0000" + i, "测试商品" + i, "<h2>测试商品描述" + i + "</h2>" + ITEM_DESCRIPTION, prices[i], 10000, userName
@@ -53,14 +55,14 @@ public class StockMngImpl implements StockMngFacade {
      */
     @Override
     public void purchase(String userName, String productCode, int count) {
-        Double productPrice = stockMngMapper.queryProductPrice(productCode, userName);
+        BigDecimal productPrice = stockMngMapper.queryProductPrice(productCode, userName);
         if (productPrice == null) {
             throw new RuntimeException("product code does not exist");
         }
         if (count <= 0) {
             throw new RuntimeException("purchase count should not be negative");
         }
-        balanceMngFacade.minusBalance(userName, productPrice * count);
+        balanceMngFacade.minusBalance(userName, productPrice.multiply(new BigDecimal(count)));
         stockMngMapper.purchase(userName, productCode, count);
         stockMngMapper.minusStockCount(userName, productCode, count);
     }

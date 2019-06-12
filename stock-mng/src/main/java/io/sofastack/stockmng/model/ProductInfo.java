@@ -1,9 +1,11 @@
 package io.sofastack.stockmng.model;
 
+import java.math.BigDecimal;
+
 public class ProductInfo {
 
     private String  productCode;
-    private Double price;
+    private BigDecimal price;
     private String  name;
     private Integer ownedCount;
     private Integer stockCount;
@@ -34,11 +36,11 @@ public class ProductInfo {
         this.productCode = productCode;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

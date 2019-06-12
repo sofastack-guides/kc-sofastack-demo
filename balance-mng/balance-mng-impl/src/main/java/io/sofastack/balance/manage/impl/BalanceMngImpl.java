@@ -5,10 +5,10 @@ import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
 import io.sofastack.balance.manage.facade.BalanceMngFacade;
 import io.sofastack.balance.manage.mapper.BalanceMngMapper;
 import io.sofastack.balance.manage.model.Balance;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 
 /**
  * @author yuanyuan
@@ -30,7 +30,7 @@ public class BalanceMngImpl implements BalanceMngFacade {
     }
 
     @Override
-    public Double queryBalance(String userName) {
+    public BigDecimal queryBalance(String userName) {
         Balance balance = balanceMngMapper.queryBalance(userName);
         if (balance == null) {
             throw new RuntimeException("user name does not exist");
@@ -39,7 +39,7 @@ public class BalanceMngImpl implements BalanceMngFacade {
     }
 
     @Override
-    public void minusBalance(String userName, double amount) {
+    public void minusBalance(String userName, BigDecimal amount) {
         balanceMngMapper.minusBalance(userName, amount);
     }
 }

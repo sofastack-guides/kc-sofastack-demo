@@ -1,12 +1,9 @@
 package io.sofastack.balance.manage.mapper;
 
 import io.sofastack.balance.manage.model.Balance;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
+import java.math.BigDecimal;
 
 @Mapper
 public interface BalanceMngMapper {
@@ -20,5 +17,5 @@ public interface BalanceMngMapper {
     Balance queryBalance(@Param("userName") String userName);
 
     @Update("update balance_tb set balance = balance - #{amount} where user_name = #{userName}")
-    void minusBalance(@Param("userName") String userName, @Param("amount") double amount);
+    void minusBalance(@Param("userName") String userName, @Param("amount") BigDecimal amount);
 }

@@ -1,5 +1,7 @@
 package io.sofastack.balance.manage.model;
 
+import java.math.BigDecimal;
+
 /**
  * @author yuanyuan
  * @since 2019/6/10
@@ -7,7 +9,7 @@ package io.sofastack.balance.manage.model;
 public class Balance {
     private int    id;
     private String userName;
-    private Double balance;
+    private BigDecimal balance;
 
     public int getId() {
         return id;
@@ -25,11 +27,11 @@ public class Balance {
         this.userName = userName;
     }
 
-    public Double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(Double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 }
