@@ -1,14 +1,16 @@
 package io.sofastack.stockmng.model;
 
+import java.math.BigDecimal;
+
 public class BalanceResponse {
 
-    private int balance;
+    private BigDecimal balance;
 
-    public int getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 }
