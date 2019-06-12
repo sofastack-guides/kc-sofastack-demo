@@ -4,9 +4,9 @@
  */
 package io.sofastack.stockmng.controller;
 
-import io.sofastack.stockmng.type.BalanceResponse;
-import io.sofastack.stockmng.type.ProductInfo;
-import io.sofastack.stockmng.type.Success;
+import io.sofastack.stockmng.model.BalanceResponse;
+import io.sofastack.stockmng.model.ProductInfo;
+import io.sofastack.stockmng.model.Success;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

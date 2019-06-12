@@ -1,4 +1,4 @@
-package io.sofastack.stockmng.type;
+package io.sofastack.stockmng.model;
 
 public class ProductInfo {
 
@@ -6,6 +6,15 @@ public class ProductInfo {
     private int     price;
     private String  name;
     private Integer ownedCount;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getProductCode() {
         return productCode;
