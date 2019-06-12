@@ -46,6 +46,11 @@
             <groupId>com.alipay.sofa</groupId>
             <artifactId>runtime-sofa-boot-starter</artifactId>
         </dependency>
+        <!--SOFALookout 依赖-->
+        <dependency>
+            <groupId>com.alipay.sofa.lookout</groupId>
+            <artifactId>lookout-sofa-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
