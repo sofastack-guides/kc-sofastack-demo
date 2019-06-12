@@ -11,9 +11,9 @@ import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
 import io.sofastack.balance.manage.facade.BalanceMngFacade;
 import io.sofastack.stockmng.controller.BookStoreController;
 import io.sofastack.stockmng.facade.StockMngFacade;
-import io.sofastack.stockmng.type.BalanceResponse;
-import io.sofastack.stockmng.type.ProductInfo;
-import io.sofastack.stockmng.type.Success;
+import io.sofastack.stockmng.model.BalanceResponse;
+import io.sofastack.stockmng.model.ProductInfo;
+import io.sofastack.stockmng.model.Success;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -26,14 +26,22 @@ import java.util.List;
 @Controller
 public class BookStoreControllerImpl implements BookStoreController {
 
-    @SofaReference(interfaceType = StockMngFacade.class, binding = @SofaReferenceBinding(bindingType = "bolt"))
+    @SofaReference(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
     private StockMngFacade stockMngFacade;
 
-    @SofaReference(interfaceType = BalanceMngFacade.class, binding = @SofaReferenceBinding(bindingType = "bolt"))
+    @SofaReference(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
     private BalanceMngFacade balanceMngFacade;
 
     @Override
     public List<ProductInfo> query(String body) {
+        JSONObject obj = JSON.parseObject(body);
+        String userName = obj.getString("userName");
+        return stockMngFacade.query(userName);
+    }
+
+    @Override
+    public List<ProductInfo> querySorted(String body) {
+        //TODO(guolei.sgl): SOFA 动态模块
         JSONObject obj = JSON.parseObject(body);
         String userName = obj.getString("userName");
         return stockMngFacade.query(userName);
@@ -54,7 +62,7 @@ public class BookStoreControllerImpl implements BookStoreController {
     }
 
     @Override
-    public Success createUser(@RequestBody String body){
+    public Success createUser(@RequestBody String body) {
         JSONObject obj = JSON.parseObject(body);
         String userName = obj.getString("userName");
         balanceMngFacade.createUser(userName);
@@ -64,7 +72,7 @@ public class BookStoreControllerImpl implements BookStoreController {
     }
 
     @Override
-    public BalanceResponse queryBalance(@RequestBody String body){
+    public BalanceResponse queryBalance(@RequestBody String body) {
         JSONObject obj = JSON.parseObject(body);
         String userName = obj.getString("userName");
         BalanceResponse balance = new BalanceResponse();
