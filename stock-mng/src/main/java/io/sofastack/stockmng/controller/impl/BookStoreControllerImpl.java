@@ -14,9 +14,12 @@ import io.sofastack.stockmng.facade.StockMngFacade;
 import io.sofastack.stockmng.model.BalanceResponse;
 import io.sofastack.stockmng.model.ProductInfo;
 import io.sofastack.stockmng.model.Success;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -25,6 +28,8 @@ import java.util.List;
  */
 @Controller
 public class BookStoreControllerImpl implements BookStoreController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BookStoreControllerImpl.class);
 
     @SofaReference(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
     private StockMngFacade stockMngFacade;
@@ -55,7 +60,18 @@ public class BookStoreControllerImpl implements BookStoreController {
         String productCode = obj.getString("productCode");
         int count = obj.getInteger("count");
 
-        stockMngFacade.purchase(userName, productCode, count);
+        BigDecimal productPrice = stockMngFacade.queryProductPrice(productCode, userName);
+        if (productPrice == null) {
+            throw new RuntimeException("product code does not exist");
+        }
+        if (count <= 0) {
+            throw new RuntimeException("purchase count should not be negative");
+        }
+        LOGGER.info("purchase begin ... ");
+        stockMngFacade.createOrder(userName, productCode, count);
+        stockMngFacade.minusStockCount(userName, productCode, count);
+        balanceMngFacade.minusBalance(userName, productPrice.multiply(new BigDecimal(count)));
+        LOGGER.info("purchase end");
         Success success = new Success();
         success.setSuccess("true");
         return success;

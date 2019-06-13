@@ -29,9 +29,9 @@ public interface StockMngMapper {
                            @Param("count") Integer count, @Param("userName") String userName);
 
     @Insert("insert into order_tb (user_name, product_code, count) values (#{userName}, #{productCode}, #{count})")
-    void createOrder(@Param("userName") String userName, @Param("productCode") String productCode, @Param("count") int count);
+    int createOrder(@Param("userName") String userName, @Param("productCode") String productCode, @Param("count") int count);
 
     @Update("update stock_tb set count=count - #{count} where product_code=#{productCode} and user_name=#{userName}")
-    void minusStockCount(@Param("userName") String userName, @Param("productCode") String productCode,
+    int minusStockCount(@Param("userName") String userName, @Param("productCode") String productCode,
                          @Param("count") int count);
 }

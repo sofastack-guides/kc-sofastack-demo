@@ -53,24 +53,19 @@ public class StockMngImpl implements StockMngFacade {
         }
     }
 
-    /**
-     *
-     * 购买商品
-     */
     @Override
-    public void purchase(String userName, String productCode, int count) {
-        BigDecimal productPrice = stockMngMapper.queryProductPrice(productCode, userName);
-        if (productPrice == null) {
-            throw new RuntimeException("product code does not exist");
-        }
-        if (count <= 0) {
-            throw new RuntimeException("purchase count should not be negative");
-        }
-        LOGGER.info("purchase begin ... ");
-        stockMngMapper.createOrder(userName, productCode, count);
-        stockMngMapper.minusStockCount(userName, productCode, count);
-        balanceMngFacade.minusBalance(userName, productPrice.multiply(new BigDecimal(count)));
-        LOGGER.info("purchase end");
+    public BigDecimal queryProductPrice(String productCode, String userName) {
+        return stockMngMapper.queryProductPrice(productCode, userName);
+    }
+
+    @Override
+    public boolean createOrder(String userName, String productCode, int count) {
+        return stockMngMapper.createOrder(userName, productCode, count) > 0;
+    }
+
+    @Override
+    public boolean minusStockCount(String userName, String productCode, int count) {
+        return stockMngMapper.minusStockCount(userName, productCode, count) > 0;
     }
 
     private static final String ITEM_DESCRIPTION = "<div>\n"

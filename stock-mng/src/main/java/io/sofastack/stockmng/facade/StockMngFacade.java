@@ -1,7 +1,9 @@
 package io.sofastack.stockmng.facade;
 
 import io.sofastack.stockmng.model.ProductInfo;
+import org.apache.ibatis.annotations.Param;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -15,10 +17,9 @@ public interface StockMngFacade {
      */
     List<ProductInfo> query(String userName);
 
+    BigDecimal queryProductPrice(String productCode, String userName);
 
-    /**
-     *
-     * 购买商品
-     */
-    void purchase(String userName, String productCode, int count);
+    boolean createOrder(String userName, String productCode, int count);
+
+    boolean minusStockCount(String userName, String productCode, int count);
 }
