@@ -1,15 +1,10 @@
 package io.sofastack.stockmng.impl;
 
-import com.alipay.sofa.runtime.api.annotation.SofaReference;
-import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
 import com.alipay.sofa.runtime.api.annotation.SofaService;
 import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
-import io.sofastack.balance.manage.facade.BalanceMngFacade;
 import io.sofastack.stockmng.facade.StockMngFacade;
 import io.sofastack.stockmng.mapper.StockMngMapper;
 import io.sofastack.stockmng.model.ProductInfo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -23,14 +18,8 @@ import java.util.List;
 @Service
 @SofaService(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", bindings = { @SofaServiceBinding(bindingType = "bolt") })
 public class StockMngImpl implements StockMngFacade {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(StockMngImpl.class);
-
     @Resource
     private StockMngMapper stockMngMapper;
-
-    @SofaReference(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
-    private BalanceMngFacade balanceMngFacade;
 
     @Override
     public List<ProductInfo> query(String userName) {
