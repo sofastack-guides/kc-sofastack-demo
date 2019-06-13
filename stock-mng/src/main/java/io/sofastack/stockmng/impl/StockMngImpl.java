@@ -21,8 +21,7 @@ import java.util.List;
  * @since 2019/6/10
  */
 @Service
-@SofaService(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", bindings = {
-        @SofaServiceBinding(bindingType = "bolt") })
+@SofaService(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", bindings = { @SofaServiceBinding(bindingType = "bolt") })
 public class StockMngImpl implements StockMngFacade {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(StockMngImpl.class);
