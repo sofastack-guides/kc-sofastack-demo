@@ -15,8 +15,7 @@ import java.math.BigDecimal;
  * @since 2019/6/10
  */
 @Service
-@SofaService(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", bindings = {
-        @SofaServiceBinding(bindingType = "bolt") })
+@SofaService(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", bindings = { @SofaServiceBinding(bindingType = "bolt") })
 public class BalanceMngImpl implements BalanceMngFacade {
     @Resource
     private BalanceMngMapper balanceMngMapper;

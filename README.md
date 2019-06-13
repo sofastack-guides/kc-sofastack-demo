@@ -1,2 +1,139 @@
-# kc-sofastack-demo
-SOFAStack Demo for SOFAStack Cloud Native Workshop on KubeCon China 2019
+# 使用 SOFAStack 快速构建微服务
+
+## 实验内容
+
+本实验基于 SOFAStack 快速构建一个微服务，主要包括以下几个部分：
+
+* 使用 SOFABoot + SOFARPC 发布服务
+* 使用 SOFABoot + SOFARPC 调用服务
+* 通过 ZipKin 查看 SOFATracer 上报的 Tracer 信息
+* 通过 SOFALookout 查看上报的 Metrics 信息
+
+## 架构图
+![pic](https://gw.alipayobjects.com/mdn/rms_1a1552/afts/img/A*WtRuRr4fzxIAAAAAAAAAAABkARQnAQ)
+
+## 任务
+
+#### 1、任务准备
+
+从  github 上将 demo 工程克隆到本地
+```bash
+git clone https://github.com/sofastack-guides/kc-sofastack-demo.git
+```
+
+然后将工程导入到 IDEA 或者 eclipse。导入之后界面如下：
+
+* balance-mng：账户管理系统，提供扣减余额服务
+* stock-mng：账户系统，提供扣减库存服务
+
+#### 2、引入依赖
+
+将下面的依赖引入到 sofastack-kubecon-service-consumer 和 sofastack-kubecon-service-provider 工程模块的 pom.xml 文件中。
+```xml
+<!--SOFARPC 依赖-->
+<dependency>
+    <groupId>com.alipay.sofa</groupId>
+    <artifactId>rpc-sofa-boot-starter</artifactId>
+</dependency>
+<!--SOFATracer 依赖-->
+<dependency>
+    <groupId>com.alipay.sofa</groupId>
+    <artifactId>tracer-sofa-boot-starter</artifactId>
+</dependency>
+<!--SOFARegistry 依赖-->
+<dependency>
+    <groupId>com.alipay.sofa</groupId>
+    <artifactId>registry-client-all</artifactId>
+</dependency>
+<!--runtime 依赖-->
+<dependency>
+    <groupId>com.alipay.sofa</groupId>
+    <artifactId>runtime-sofa-boot-starter</artifactId>
+</dependency>
+<!--SOFALookout 依赖-->
+<dependency>
+    <groupId>com.alipay.sofa.lookout</groupId>
+    <artifactId>lookout-sofa-boot-starter</artifactId>
+</dependency>
+```
+#### 3、添加配置
+
+将如下配置复制到  sofastack-kubecon-service-consumer 和 sofastack-kubecon-service-provider 工程模块的 application.properties 中。
+```properties
+# 1、添加服务注册中心地址
+com.alipay.sofa.rpc.registry.address=sofa://registry-1-dev.sofastack.tech:9603
+# 2、添加 tracer 数据上报的服务端 zipkin 地址
+com.alipay.sofa.tracer.zipkin.base-url=http://zipkin-dev.sofastack.tech:9411
+# 3、添加 metrics 数据上报的服务端地址
+com.alipay.sofa.lookout.agent-host-address=zipkin-dev.sofastack.tech
+```
+
+#### 4、修改 unique id
+由于所有人共用一套服务发现，为区分不同用户发布的服务，需要为服务增加 unique id。KubeCon workshop 会给每个用户准备一个 SOFAStack 账号，格式为 user0@sofastack.io 到 user99@sofastack.io，去掉 @sofastack.io 部分，账户前半部分的 user0 至 user99 即可作为 unique id。
+
+#### 5、发布 SOFARPC 服务
+
+如下图所示，在 BalanceMngImpl 类上加上 @SofaService 注解 和 @Service 注解，将其发布成一个 SOFARPC 服务：
+
+```java
+@Service
+@SofaService(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", bindings = { @SofaServiceBinding(bindingType = "bolt") })
+```
+
+如下图所示，在 StockMngImpl 类上加上 @SofaService 注解 和 @Service 注解，将其发布成一个 SOFARPC 服务：
+
+```java
+@Service
+@SofaService(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", bindings = { @SofaServiceBinding(bindingType = "bolt") })
+```
+
+增加之后的界面如下所示：
+
+右击 balance-mng-bootstrap 模块的 BalanceMngApplication ，run BalanceMngApplication 启动应用
+
+#### 6、引用 SOFARPC 服务
+
+在 BookStoreControllerImpl 类中的 stockMngFacade 变量上方加 @SofaReference 注解，用于引用 SOFARPC 服务:
+
+注解参考：
+
+```java
+@SofaReference(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
+```
+
+在 BookStoreControllerImpl 类中的 balanceMngFacade 变量上方加 @SofaReference 注解，用于引用 SOFARPC 服务:
+
+注解参考：
+
+```java
+@SofaReference(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
+```
+
+在 StockMngImpl 类中的 balanceMngFacade 变量上方加 @SofaReference 注解，用于引用 SOFARPC 服务:
+
+注解参考：
+
+```java
+@SofaReference(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
+```
+
+增加之后的界面如下所示：
+
+右击 StockMngApplication ，run StockMngApplication 启动应用。
+
+#### 7、实验验证
+
+应用启动之后，通过浏览器访问：[http://localhost:8080](http://localhost:8080) 即可正常操作页面。
+
+浏览器访问 [http://zipkin-dev.sofastack.tech:9411](http://zipkin-dev.sofastack.tech:9411)，查看链路数据上报以链路关系图。
+
+浏览器访问 [http://zipkin-dev.sofastack.tech:9090](http://zipkin-dev.sofastack.tech:9090) 即可查看上报 metrics：
+
+* jvm.threads.totalStarted{app="stock_mng"}：可以查看 JVM 启动线程数
+* jvm.memory.heap.used{app="stock_mng"}：可以查看 JVM 使用内存
+* jvm.gc.old.count{app="stock_mng"}：可以查看 JVM 老年代 GC 次数
+* rpc.consumer.service.stats.total_count.count{app="stock_mng"}：可以查看 BalanceMngFacade 接口的调用次数
+* rpc.consumer.service.stats.total_time.elapPerExec{app="stock_mng"}：可以查看 BalanceMngFacade 平均每次调用时间
+* rpc.consumer.service.stats.total_time.max{app="stock_mng"}：可以查看 BalanceMngFacade 最大响应时间
+
+关于 SOFALookout 的更多用法，请参考: [https://www.sofastack.tech/sofa-lookout/docs/Home](https://www.sofastack.tech/sofa-lookout/docs/Home)
