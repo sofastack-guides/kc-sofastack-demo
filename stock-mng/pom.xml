@@ -35,8 +35,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
-		<!-- 引入依赖在这里 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alipay.sofa</groupId>
+			<artifactId>healthcheck-sofa-boot-starter</artifactId>
+		</dependency>
 		<!--SOFARPC 依赖-->
 		<dependency>
 			<groupId>com.alipay.sofa</groupId>
@@ -57,13 +63,67 @@
 			<groupId>com.alipay.sofa</groupId>
 			<artifactId>runtime-sofa-boot-starter</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>io.sofastack</groupId>
+			<artifactId>dynamic-facade</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alipay.sofa</groupId>
+			<artifactId>sofa-dashboard-client</artifactId>
+		</dependency>
+		<dependency>
+			<artifactId>curator-client</artifactId>
+			<groupId>org.apache.curator</groupId>
+		</dependency>
+		<dependency>
+			<artifactId>curator-framework</artifactId>
+			<groupId>org.apache.curator</groupId>
+		</dependency>
+
+		<!-- 引用 sofa ark 相关依赖-->
+		<dependency>
+			<groupId>com.alipay.sofa</groupId>
+			<artifactId>web-ark-plugin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alipay.sofa</groupId>
+			<artifactId>config-ark-plugin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alipay.sofa</groupId>
+			<artifactId>sofa-ark-springboot-starter</artifactId>
+		</dependency>
+		<!-- 引用 dynamic-provider 依赖-->
+		<dependency>
+			<groupId>io.sofastack</groupId>
+			<artifactId>dynamic-provider</artifactId>
+			<version>1.0.0</version>
+			<classifier>ark-biz</classifier>
+		</dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
+
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>com.alipay.sofa</groupId>
+				<artifactId>sofa-ark-maven-plugin</artifactId>
+				<version>0.6.0</version>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<priority>100</priority>
+					<baseDir>../</baseDir>
+					<bizName>stock-mng</bizName>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

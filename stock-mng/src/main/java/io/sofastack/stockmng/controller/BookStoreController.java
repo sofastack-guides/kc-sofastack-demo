@@ -62,12 +62,4 @@ public interface BookStoreController {
     @ResponseBody
     BalanceResponse queryBalance(@RequestBody String body);
 
-
-    /**
-     * 查询排序
-     * @return
-     */
-    @RequestMapping(value = "/querySort", method = RequestMethod.POST)
-    @ResponseBody
-    BalanceResponse querySort();
 }

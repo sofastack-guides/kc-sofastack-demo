@@ -1,5 +1,6 @@
 package io.sofastack.stockmng.facade;
 
+import io.sofastack.stockmng.model.OrderInfo;
 import io.sofastack.stockmng.model.ProductInfo;
 
 import java.util.List;
@@ -21,4 +22,7 @@ public interface StockMngFacade {
      * 购买商品
      */
     void purchase(String userName, String productCode, int count);
+
+
+    List<OrderInfo> queryOrderByUserName(String userName);
 }

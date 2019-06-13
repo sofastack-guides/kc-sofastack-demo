@@ -6,7 +6,6 @@
     <modules>
         <module>stock-mng</module>
         <module>balance-mng</module>
-        <module>dynamic</module>
     </modules>
     <parent>
         <groupId>com.alipay.sofa</groupId>
@@ -22,6 +21,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <ark.version>0.6.0</ark.version>
+        <curator.version>2.9.1</curator.version>
     </properties>
 
     <dependencies>
@@ -51,6 +52,38 @@
                 <artifactId>registry-client-all</artifactId>
                 <version>5.2.0</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>sofa-dashboard-client</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <!-- 引用ark web插件-->
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>web-ark-plugin</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+
+            <!-- 引用ark 配置推送扩展插件-->
+            <dependency>
+                <groupId>com.alipay.sofa</groupId>
+                <artifactId>config-ark-plugin</artifactId>
+                <version>${ark.version}</version>
+            </dependency>
+
+            <dependency>
+                <artifactId>curator-client</artifactId>
+                <groupId>org.apache.curator</groupId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <artifactId>curator-framework</artifactId>
+                <groupId>org.apache.curator</groupId>
+                <version>${curator.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

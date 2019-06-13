@@ -1,5 +1,6 @@
 package io.sofastack.stockmng.mapper;
 
+import io.sofastack.stockmng.model.OrderInfo;
 import io.sofastack.stockmng.model.ProductInfo;
 import org.apache.ibatis.annotations.*;
 
@@ -34,4 +35,9 @@ public interface StockMngMapper {
     @Update("update stock_tb set count=count - #{count} where product_code=#{productCode} and user_name=#{userName}")
     void minusStockCount(@Param("userName") String userName, @Param("productCode") String productCode,
                          @Param("count") int count);
+
+
+    @Select("select order_tb.id as id,order_tb.user_name as userName,order_tb.product_code as productCode\n" +
+            ",order_tb.count as count from order_tb where user_name=#{userName}")
+    List<OrderInfo> queryOrderByUserName(@Param("userName") String userName);
 }

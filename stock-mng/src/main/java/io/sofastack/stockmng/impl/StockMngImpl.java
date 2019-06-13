@@ -7,11 +7,12 @@ import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
 import io.sofastack.balance.manage.facade.BalanceMngFacade;
 import io.sofastack.stockmng.facade.StockMngFacade;
 import io.sofastack.stockmng.mapper.StockMngMapper;
+import io.sofastack.stockmng.model.OrderInfo;
 import io.sofastack.stockmng.model.ProductInfo;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,6 +50,14 @@ public class StockMngImpl implements StockMngFacade {
         }
     }
 
+    @Override
+    public List<OrderInfo> queryOrderByUserName(String userName){
+        List<OrderInfo> list = stockMngMapper.queryOrderByUserName(userName);
+        if (list==null){
+            list = new ArrayList<>();
+        }
+        return list;
+    }
     /**
      *
      * 购买商品
