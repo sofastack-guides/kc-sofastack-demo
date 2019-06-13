@@ -23,12 +23,14 @@ git clone https://github.com/sofastack-guides/kc-sofastack-demo.git
 
 然后将工程导入到 IDEA 或者 eclipse。导入之后界面如下：
 
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*vVDNR7FRmQsAAAAAAAAAAABkARQnAQ)
+
 * balance-mng：账户管理系统，提供扣减余额服务
 * stock-mng：账户系统，提供扣减库存服务
 
 #### 2、引入依赖
 
-将下面的依赖引入到 sofastack-kubecon-service-consumer 和 sofastack-kubecon-service-provider 工程模块的 pom.xml 文件中。
+将下面的依赖引入到 balance-mng 和 stock-mng 工程模块的 pom.xml 文件中。
 ```xml
 <!--SOFARPC 依赖-->
 <dependency>
@@ -56,9 +58,18 @@ git clone https://github.com/sofastack-guides/kc-sofastack-demo.git
     <artifactId>lookout-sofa-boot-starter</artifactId>
 </dependency>
 ```
+
+balance-mng 工程需要将依赖引入 balance-mng-imp 模块的 pom 文件：
+
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*R475S7L1T3gAAAAAAAAAAABkARQnAQ)
+
+stock-mng 工程直接将依赖引入 stock-mng 模块的 pom 文件：
+
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*z5mtSLaTuN4AAAAAAAAAAABkARQnAQ)
+
 #### 3、添加配置
 
-将如下配置复制到  sofastack-kubecon-service-consumer 和 sofastack-kubecon-service-provider 工程模块的 application.properties 中。
+将如下配置复制到 balance-mng 和 stock-mng 工程模块的 application.properties 中。
 ```properties
 # 1、添加服务注册中心地址
 com.alipay.sofa.rpc.registry.address=sofa://registry-1-dev.sofastack.tech:9603
@@ -68,34 +79,54 @@ com.alipay.sofa.tracer.zipkin.base-url=http://zipkin-dev.sofastack.tech:9411
 com.alipay.sofa.lookout.agent-host-address=zipkin-dev.sofastack.tech
 ```
 
+balance-mng 工程需要将配置添加至 balance-mng-bootstrap 模块的 application.properties 文件：
+
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*aI0nT4hu2sYAAAAAAAAAAABkARQnAQ)
+
+stock-mng 工程需要将配置添加至 stock-mng 模块的 application.properties 文件：
+
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*MVm1TIODuNYAAAAAAAAAAABkARQnAQ)
+
 #### 4、修改 unique id
-由于所有人共用一套服务发现，为区分不同用户发布的服务，需要为服务增加 unique id。KubeCon workshop 会给每个用户准备一个 SOFAStack 账号，格式为 user0@sofastack.io 到 user99@sofastack.io，去掉 @sofastack.io 部分，账户前半部分的 user0 至 user99 即可作为 unique id。
+由于所有人共用一套服务发现，为区分不同用户发布的服务，需要为服务增加 unique id。
+
+KubeCon workshop 会给每个用户准备一个 SOFAStack 账号，格式为 user0@sofastack.io 到 user99@sofastack.io，去掉 @sofastack.io 部分，账户前半部分的 user0 至 user99 即可作为 unique id。
+
+balance-mng 工程需要在 balance-mng-bootstrap 模块的 application.properties 文件修改：
+
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*6tsSQoNqZKQAAAAAAAAAAABkARQnAQ）
+
+stock-mng 工程需要在 stock-mng 模块的 application.properties 文件修改：
+
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*0dF6R6oKJTUAAAAAAAAAAABkARQnAQ）
 
 #### 5、发布 SOFARPC 服务
 
-如下图所示，在 BalanceMngImpl 类上加上 @SofaService 注解 和 @Service 注解，将其发布成一个 SOFARPC 服务：
+在 BalanceMngImpl 类上加上 @SofaService 注解 和 @Service 注解，将其发布成一个 SOFARPC 服务：
 
 ```java
 @Service
 @SofaService(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", bindings = { @SofaServiceBinding(bindingType = "bolt") })
 ```
 
-如下图所示，在 StockMngImpl 类上加上 @SofaService 注解 和 @Service 注解，将其发布成一个 SOFARPC 服务：
+增加之后的 BalanceMngImpl 类如下图所示：
+
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*Hq4HSrGX3YsAAAAAAAAAAABkARQnAQ)
+
+在 StockMngImpl 类上加上 @SofaService 注解 和 @Service 注解，将其发布成一个 SOFARPC 服务：
 
 ```java
 @Service
 @SofaService(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", bindings = { @SofaServiceBinding(bindingType = "bolt") })
 ```
 
-增加之后的界面如下所示：
+增加之后的 StockMngImpl 类如下图所示：
 
-右击 balance-mng-bootstrap 模块的 BalanceMngApplication ，run BalanceMngApplication 启动应用
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*s36WT6dxHcsAAAAAAAAAAABkARQnAQ)
 
 #### 6、引用 SOFARPC 服务
 
 在 BookStoreControllerImpl 类中的 stockMngFacade 变量上方加 @SofaReference 注解，用于引用 SOFARPC 服务:
-
-注解参考：
 
 ```java
 @SofaReference(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
@@ -103,27 +134,17 @@ com.alipay.sofa.lookout.agent-host-address=zipkin-dev.sofastack.tech
 
 在 BookStoreControllerImpl 类中的 balanceMngFacade 变量上方加 @SofaReference 注解，用于引用 SOFARPC 服务:
 
-注解参考：
-
 ```java
 @SofaReference(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
 ```
 
-在 StockMngImpl 类中的 balanceMngFacade 变量上方加 @SofaReference 注解，用于引用 SOFARPC 服务:
+增加之后的 BookStoreControllerImpl 类如下图所示：
 
-注解参考：
-
-```java
-@SofaReference(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
-```
-
-增加之后的界面如下所示：
-
-右击 StockMngApplication ，run StockMngApplication 启动应用。
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*L2d6RLa8XzkAAAAAAAAAAABkARQnAQ)
 
 #### 7、实验验证
 
-应用启动之后，通过浏览器访问：[http://localhost:8080](http://localhost:8080) 即可正常操作页面。
+运行 BalanceMngApplication 和 StockMngApplication 即可启动应用。应用启动之后，通过浏览器访问：[http://localhost:8080](http://localhost:8080) 即可正常操作页面。
 
 浏览器访问 [http://zipkin-dev.sofastack.tech:9411](http://zipkin-dev.sofastack.tech:9411)，查看链路数据上报以链路关系图。
 
