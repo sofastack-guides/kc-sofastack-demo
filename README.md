@@ -144,11 +144,17 @@ stock-mng 工程需要在 stock-mng 模块的 application.properties 文件修�
 
 #### 7、实验验证
 
-运行 BalanceMngApplication 和 StockMngApplication 即可启动应用。应用启动之后，通过浏览器访问：[http://localhost:8080](http://localhost:8080) 即可正常操作页面。
+运行 BalanceMngApplication 和 StockMngApplication 即可启动应用。应用启动之后，通过浏览器访问：[http://localhost:8080](http://localhost:8080) 即可正常操作页面:
 
-浏览器访问 [http://139.224.123.199:9411](http://139.224.123.199:9411)，查看链路数据上报以链路关系图。
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*s_pATp7OFmAAAAAAAAAAAABkARQnAQ)
+
+浏览器访问 [http://139.224.123.199:9411](http://139.224.123.199:9411)，查看链路数据上报以链路关系图：
+
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*rUxWQJ2tARAAAAAAAAAAAABkARQnAQ)
 
 浏览器访问 [http://139.224.123.35:9090](http://139.224.123.35:9090) 即可查看上报 metrics：
+
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*k1kVS5N4oCQAAAAAAAAAAABkARQnAQ)
 
 * `jvm.threads.totalStarted{app="stock_mng"}`：可以查看 JVM 启动线程数
 * `rpc.consumer.service.stats.total_count.count{app="stock_mng"}`：可以查看 stock_mng 应用的调用次数
