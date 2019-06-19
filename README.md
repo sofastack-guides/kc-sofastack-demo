@@ -10,7 +10,7 @@
 * 通过 SOFALookout 查看上报的 Metrics 信息
 
 ## 架构图
-![pic](https://gw.alipayobjects.com/mdn/rms_1a1552/afts/img/A*WtRuRr4fzxIAAAAAAAAAAABkARQnAQ)
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*FiVrSoXTfsAAAAAAAAAAAABkARQnAQ)
 
 ## 任务
 
@@ -72,11 +72,11 @@ stock-mng 工程直接将依赖引入 stock-mng 模块的 pom 文件：
 将如下配置复制到 balance-mng 和 stock-mng 工程模块的 application.properties 中。
 ```properties
 # 1、添加服务注册中心地址
-com.alipay.sofa.rpc.registry.address=sofa://registry-1-dev.sofastack.tech:9603
+com.alipay.sofa.rpc.registry.address=sofa://118.31.43.62:9603
 # 2、添加 tracer 数据上报的服务端 zipkin 地址
-com.alipay.sofa.tracer.zipkin.base-url=http://zipkin-dev.sofastack.tech:9411
+com.alipay.sofa.tracer.zipkin.base-url=http://139.224.123.199:9411
 # 3、添加 metrics 数据上报的服务端地址
-com.alipay.sofa.lookout.agent-host-address=zipkin-dev.sofastack.tech
+com.alipay.sofa.lookout.agent-host-address=139.224.123.35
 ```
 
 balance-mng 工程需要将配置添加至 balance-mng-bootstrap 模块的 application.properties 文件：
@@ -94,11 +94,11 @@ KubeCon workshop 会给每个用户准备一个 SOFAStack 账号，格式为 use
 
 balance-mng 工程需要在 balance-mng-bootstrap 模块的 application.properties 文件修改：
 
-![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*6tsSQoNqZKQAAAAAAAAAAABkARQnAQ）
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*6tsSQoNqZKQAAAAAAAAAAABkARQnAQ)
 
 stock-mng 工程需要在 stock-mng 模块的 application.properties 文件修改：
 
-![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*0dF6R6oKJTUAAAAAAAAAAABkARQnAQ）
+![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*0dF6R6oKJTUAAAAAAAAAAABkARQnAQ)
 
 #### 5、发布 SOFARPC 服务
 
@@ -146,15 +146,11 @@ stock-mng 工程需要在 stock-mng 模块的 application.properties 文件修�
 
 运行 BalanceMngApplication 和 StockMngApplication 即可启动应用。应用启动之后，通过浏览器访问：[http://localhost:8080](http://localhost:8080) 即可正常操作页面。
 
-浏览器访问 [http://zipkin-dev.sofastack.tech:9411](http://zipkin-dev.sofastack.tech:9411)，查看链路数据上报以链路关系图。
+浏览器访问 [http://139.224.123.199:9411](http://139.224.123.199:9411)，查看链路数据上报以链路关系图。
 
-浏览器访问 [http://zipkin-dev.sofastack.tech:9090](http://zipkin-dev.sofastack.tech:9090) 即可查看上报 metrics：
+浏览器访问 [http://139.224.123.35:9090](http://139.224.123.35:9090) 即可查看上报 metrics：
 
-* jvm.threads.totalStarted{app="stock_mng"}：可以查看 JVM 启动线程数
-* jvm.memory.heap.used{app="stock_mng"}：可以查看 JVM 使用内存
-* jvm.gc.old.count{app="stock_mng"}：可以查看 JVM 老年代 GC 次数
-* rpc.consumer.service.stats.total_count.count{app="stock_mng"}：可以查看 BalanceMngFacade 接口的调用次数
-* rpc.consumer.service.stats.total_time.elapPerExec{app="stock_mng"}：可以查看 BalanceMngFacade 平均每次调用时间
-* rpc.consumer.service.stats.total_time.max{app="stock_mng"}：可以查看 BalanceMngFacade 最大响应时间
+* `jvm.threads.totalStarted{app="stock_mng"}`：可以查看 JVM 启动线程数
+* `rpc.consumer.service.stats.total_count.count{app="stock_mng"}`：可以查看 stock_mng 应用的调用次数
 
 关于 SOFALookout 的更多用法，请参考: [https://www.sofastack.tech/sofa-lookout/docs/Home](https://www.sofastack.tech/sofa-lookout/docs/Home)
