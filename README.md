@@ -25,7 +25,7 @@ git clone https://github.com/sofastack-guides/kc-sofastack-demo.git
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*vVDNR7FRmQsAAAAAAAAAAABkARQnAQ)
 
-* balance-mng：账户管理系统，提供扣减余额服务
+* balance-mng：余额管理系统，提供扣减余额服务
 * stock-mng：库存管理系统，提供扣减库存服务
 
 #### 2、引入依赖
