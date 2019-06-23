@@ -6,6 +6,8 @@ package io.sofastack.stockmng.controller.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alipay.sofa.runtime.api.annotation.SofaReference;
+import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
 import io.sofastack.balance.manage.facade.BalanceMngFacade;
 import io.sofastack.stockmng.controller.BookStoreController;
 import io.sofastack.stockmng.facade.StockMngFacade;
@@ -29,8 +31,10 @@ public class BookStoreControllerImpl implements BookStoreController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BookStoreControllerImpl.class);
 
+    @SofaReference(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
     private StockMngFacade stockMngFacade;
 
+    @SofaReference(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
     private BalanceMngFacade balanceMngFacade;
 
     @Override
