@@ -59,11 +59,11 @@ git clone https://github.com/sofastack-guides/kc-sofastack-demo.git
 </dependency>
 ```
 
-balance-mng 工程需要将依赖引入 balance-mng-imp 模块的 pom 文件：
+balance-mng 工程需要将依赖引入 balance-mng/balance-mng-impl/pom.xml 文件：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*R475S7L1T3gAAAAAAAAAAABkARQnAQ)
 
-stock-mng 工程直接将依赖引入 stock-mng 模块的 pom 文件：
+stock-mng 工程直接将依赖引入 stock-mng/pom.xml 文件：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*z5mtSLaTuN4AAAAAAAAAAABkARQnAQ)
 
@@ -79,11 +79,11 @@ com.alipay.sofa.tracer.zipkin.base-url=http://116.62.131.134:9411
 com.alipay.sofa.lookout.agent-host-address=121.43.187.56
 ```
 
-balance-mng 工程需要将配置添加至 balance-mng-bootstrap 模块的 application.properties 文件：
+balance-mng 工程需要将配置添加至 balance-mng/balance-mng-bootstrap/src/main/resources/application.properties 文件：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*aI0nT4hu2sYAAAAAAAAAAABkARQnAQ)
 
-stock-mng 工程需要将配置添加至 stock-mng 模块的 application.properties 文件：
+stock-mng 工程需要将配置添加至 stock-mng/src/main/resources/application.properties 文件：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*MVm1TIODuNYAAAAAAAAAAABkARQnAQ)
 
@@ -92,11 +92,11 @@ stock-mng 工程需要将配置添加至 stock-mng 模块的 application.propert
 
 KubeCon workshop 会给每个用户准备一个 SOFAStack 账号，格式为 user0@sofastack.io 到 user99@sofastack.io，去掉 @sofastack.io 部分，账户前半部分的 user0 至 user99 即可作为 unique id。
 
-balance-mng 工程需要在 balance-mng-bootstrap 模块的 application.properties 文件修改：
+balance-mng 工程需要在 balance-mng/balance-mng-bootstrap/src/main/resources/application.properties 文件修改：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*6tsSQoNqZKQAAAAAAAAAAABkARQnAQ)
 
-stock-mng 工程需要在 stock-mng 模块的 application.properties 文件修改：
+stock-mng 工程需要在 stock-mng/src/main/resources/application.properties 文件修改：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*0dF6R6oKJTUAAAAAAAAAAABkARQnAQ)
 
