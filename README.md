@@ -74,9 +74,9 @@ stock-mng 工程直接将依赖引入 stock-mng 模块的 pom 文件：
 # 1、添加服务注册中心地址
 com.alipay.sofa.rpc.registry.address=sofa://118.31.43.62:9603
 # 2、添加 tracer 数据上报的服务端 zipkin 地址
-com.alipay.sofa.tracer.zipkin.base-url=http://139.224.123.199:9411
+com.alipay.sofa.tracer.zipkin.base-url=http://116.62.131.134:9411
 # 3、添加 metrics 数据上报的服务端地址
-com.alipay.sofa.lookout.agent-host-address=139.224.123.35
+com.alipay.sofa.lookout.agent-host-address=121.43.187.56
 ```
 
 balance-mng 工程需要将配置添加至 balance-mng-bootstrap 模块的 application.properties 文件：
@@ -148,11 +148,11 @@ stock-mng 工程需要在 stock-mng 模块的 application.properties 文件修�
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*s_pATp7OFmAAAAAAAAAAAABkARQnAQ)
 
-浏览器访问 [http://139.224.123.199:9411](http://139.224.123.199:9411)，查看链路数据上报以链路关系图：
+浏览器访问 [http://116.62.131.134:9411](http://116.62.131.134:9411)，查看链路数据上报以链路关系图：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*rUxWQJ2tARAAAAAAAAAAAABkARQnAQ)
 
-浏览器访问 [http://139.224.123.35:9090](http://139.224.123.35:9090) 即可查看上报 metrics：
+浏览器访问 [http://121.43.187.56:9090](http://121.43.187.56:9090) 即可查看上报 metrics：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*k1kVS5N4oCQAAAAAAAAAAABkARQnAQ)
 
