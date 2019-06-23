@@ -105,6 +105,10 @@ stock-mng 工程需要在 stock-mng/src/main/resources/application.properties �
 在 BalanceMngImpl 类上加上 @SofaService 注解 和 @Service 注解，将其发布成一个 SOFARPC 服务：
 
 ```java
+import org.springframework.stereotype.Service;
+import com.alipay.sofa.runtime.api.annotation.SofaService;
+import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
+
 @Service
 @SofaService(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", bindings = { @SofaServiceBinding(bindingType = "bolt") })
 ```
@@ -116,6 +120,10 @@ stock-mng 工程需要在 stock-mng/src/main/resources/application.properties �
 在 StockMngImpl 类上加上 @SofaService 注解 和 @Service 注解，将其发布成一个 SOFARPC 服务：
 
 ```java
+import org.springframework.stereotype.Service;
+import com.alipay.sofa.runtime.api.annotation.SofaService;
+import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
+
 @Service
 @SofaService(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", bindings = { @SofaServiceBinding(bindingType = "bolt") })
 ```
@@ -124,38 +132,29 @@ stock-mng 工程需要在 stock-mng/src/main/resources/application.properties �
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*s36WT6dxHcsAAAAAAAAAAABkARQnAQ)
 
-新增引入类如下：
-
-```java
-import org.springframework.stereotype.Service;
-import com.alipay.sofa.runtime.api.annotation.SofaService;
-import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
-```
-
 #### 6、引用 SOFARPC 服务
 
 在 BookStoreControllerImpl 类中的 stockMngFacade 变量上方加 @SofaReference 注解，用于引用 SOFARPC 服务:
 
 ```java
+import com.alipay.sofa.runtime.api.annotation.SofaReference;
+import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
+
 @SofaReference(interfaceType = StockMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
 ```
 
 在 BookStoreControllerImpl 类中的 balanceMngFacade 变量上方加 @SofaReference 注解，用于引用 SOFARPC 服务:
 
 ```java
+import com.alipay.sofa.runtime.api.annotation.SofaReference;
+import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
+
 @SofaReference(interfaceType = BalanceMngFacade.class, uniqueId = "${service.unique.id}", binding = @SofaReferenceBinding(bindingType = "bolt"))
 ```
 
 增加之后的 BookStoreControllerImpl 类如下图所示：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*L2d6RLa8XzkAAAAAAAAAAABkARQnAQ)
-
-新增引入类如下：
-
-```java
-import com.alipay.sofa.runtime.api.annotation.SofaReference;
-import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
-```
 
 #### 7、实验验证
 
