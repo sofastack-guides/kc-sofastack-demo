@@ -1,5 +1,7 @@
 # 使用 SOFAStack 快速构建微服务
 
+**注意：您需要自行部署后端环境依赖，并修改示例中的服务依赖地址即可使用。**
+
 ## 实验内容
 
 本实验基于 SOFAStack 快速构建一个微服务，主要包括以下几个部分：
@@ -174,3 +176,7 @@ import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
 * `rpc.consumer.service.stats.total_count.count{app="stock_mng"}`：可以查看 stock_mng 应用的调用次数
 
 关于 SOFALookout 的更多用法，请参考: [https://www.sofastack.tech/sofa-lookout/docs/Home](https://www.sofastack.tech/sofa-lookout/docs/Home)
+
+## 更多
+
+- [下载本次 Demo 幻灯片](https://gw.alipayobjects.com/os/basement_prod/b16fd217-b82b-436e-8b0d-452e636e072b.pdf)。
