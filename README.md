@@ -74,11 +74,11 @@ stock-mng 工程直接将依赖引入 stock-mng/pom.xml 文件：
 将如下配置复制到 balance-mng 和 stock-mng 工程模块的 application.properties 中。
 ```properties
 # 1、添加服务注册中心地址
-com.alipay.sofa.rpc.registry.address=sofa://118.31.43.62:9603
+com.alipay.sofa.rpc.registry.address=sofa://localhost:9603
 # 2、添加 tracer 数据上报的服务端 zipkin 地址
-com.alipay.sofa.tracer.zipkin.base-url=http://116.62.131.134:9411
+com.alipay.sofa.tracer.zipkin.base-url=http://localhost:9411
 # 3、添加 metrics 数据上报的服务端地址
-com.alipay.sofa.lookout.agent-host-address=121.43.187.56
+com.alipay.sofa.lookout.agent-host-address=localhost
 ```
 
 balance-mng 工程需要将配置添加至 balance-mng/balance-mng-bootstrap/src/main/resources/application.properties 文件：
@@ -164,11 +164,11 @@ import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*s_pATp7OFmAAAAAAAAAAAABkARQnAQ)
 
-浏览器访问 [http://116.62.131.134:9411](http://116.62.131.134:9411)，查看链路数据上报以链路关系图：
+浏览器访问 [http://localhost:9411](http://localhost:9411)，查看链路数据上报以链路关系图：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*rUxWQJ2tARAAAAAAAAAAAABkARQnAQ)
 
-浏览器访问 [http://121.43.187.56:9090](http://121.43.187.56:9090) 即可查看上报 metrics：
+浏览器访问 [http://localhost:9090](http://localhost:9090) 即可查看上报 metrics：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*k1kVS5N4oCQAAAAAAAAAAABkARQnAQ)
 
