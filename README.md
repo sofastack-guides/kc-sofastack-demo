@@ -1,6 +1,11 @@
 # 使用 SOFAStack 快速构建微服务
 
-**注意：您需要自行部署后端环境依赖，并修改示例中的服务依赖地址即可使用。**
+## 前置条件
+注意：您需要自行部署后端环境依赖，并修改示例中的服务依赖地址即可使用。
+
+- [必选]部署注册中心：https://www.sofastack.tech/projects/sofa-registry/server-quick-start/
+- [可选]部署LookoutServer：https://www.sofastack.tech/projects/sofa-lookout/quick-start-metrics-server/
+- [可选]部署Zipkin：https://zipkin.io/pages/quickstart.html
 
 ## 实验内容
 
