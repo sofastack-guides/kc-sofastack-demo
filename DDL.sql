@@ -1,6 +1,7 @@
 # ==========================
 # balance db
-
+CREATE DATABASE balance_db;
+USE balance_db;
 DROP TABLE IF EXISTS `balance_tb`;
 CREATE TABLE `balance_tb`
 (
@@ -14,7 +15,8 @@ CREATE TABLE `balance_tb`
 
 # ==========================
 # stock db
-
+CREATE database stock_db;
+USE stock_db;
 DROP TABLE IF EXISTS `stock_tb`;
 CREATE TABLE `stock_tb`
 (

@@ -4,6 +4,7 @@
 注意：您需要自行部署后端环境依赖，并修改示例中的服务依赖地址即可使用。
 
 - [必选]部署注册中心：https://www.sofastack.tech/projects/sofa-registry/server-quick-start/
+- [必须]部署数据库：本地自行搭建数据库，然后导入 [DDL.sql](https://github.com/sofastack-guides/kc-sofastack-demo/blob/master/DDL.sql)
 - [可选]部署LookoutServer：https://www.sofastack.tech/projects/sofa-lookout/quick-start-metrics-server/
 - [可选]部署Zipkin：https://zipkin.io/pages/quickstart.html
 
@@ -81,8 +82,10 @@ stock-mng 工程直接将依赖引入 stock-mng/pom.xml 文件：
 # 1、添加服务注册中心地址
 com.alipay.sofa.rpc.registry.address=sofa://localhost:9603
 # 2、添加 tracer 数据上报的服务端 zipkin 地址
+# 如果上面前置条件未搭建 tracer，可以不配置
 com.alipay.sofa.tracer.zipkin.base-url=http://localhost:9411
 # 3、添加 metrics 数据上报的服务端地址
+# 如果上面前置条件未搭建 lookout-server，可以不配置
 com.alipay.sofa.lookout.agent-host-address=localhost
 ```
 
@@ -90,14 +93,34 @@ balance-mng 工程需要将配置添加至 balance-mng/balance-mng-bootstrap/src
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*aI0nT4hu2sYAAAAAAAAAAABkARQnAQ)
 
+另外数据库配置修改为自己的数据库信息：
+```
+# database config
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/stock_db
+spring.datasource.username=root
+spring.datasource.password=root
+```
+
 stock-mng 工程需要将配置添加至 stock-mng/src/main/resources/application.properties 文件：
 
 ![pic](https://gw.alipayobjects.com/mdn/rms_c69e1f/afts/img/A*MVm1TIODuNYAAAAAAAAAAABkARQnAQ)
+
+另外数据库配置修改为自己的数据库信息：
+```
+# database config
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/stock_db
+spring.datasource.username=root
+spring.datasource.password=root
+```
 
 #### 4、修改 unique id
 由于所有人共用一套服务发现，为区分不同用户发布的服务，需要为服务增加 unique id。
 
 KubeCon workshop 会给每个用户准备一个 SOFAStack 账号，格式为 user0@sofastack.io 到 user99@sofastack.io，去掉 @sofastack.io 部分，账户前半部分的 user0 至 user99 即可作为 unique id。
+
+> 注意：balance-mng 和 stock-mng 里的 unique id 需要一致。
 
 balance-mng 工程需要在 balance-mng/balance-mng-bootstrap/src/main/resources/application.properties 文件修改：
 
