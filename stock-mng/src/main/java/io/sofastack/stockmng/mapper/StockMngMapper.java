@@ -12,7 +12,7 @@ public interface StockMngMapper {
         "select stock_tb.product_code as productCode, stock_tb.count as stockCount, name, price, sum(user_orders.count) as ownedCount, description\n" +
             "from stock_tb left outer join (select product_code, count from order_tb where user_name = #{userName}) as user_orders\n" +
             "                      on stock_tb.product_code = user_orders.product_code where stock_tb.user_name=#{userName} \n" +
-            "group by stock_tb.product_code;")
+            "group by productCode, stockCount, name, price, description;")
     List<ProductInfo> query(@Param("userName") String userName);
 
     @Select("select price from stock_tb where product_code = #{productCode} and user_name = #{userName}")
